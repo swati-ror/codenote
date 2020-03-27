@@ -1,0 +1,7 @@
+$('#myModal').append("<%= j render(:partial => 'shared/list') %>");
+$(document).on('click', '.modal-footer', function(){
+  $('#myModal').hide()
+});
+$(document).on('click', '.modal-header', function(){
+  $('#myModal').hide()
+});

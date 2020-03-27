@@ -1,0 +1,11 @@
+<h1> Home Page </h1>
+<%- if current_user.role == 'admin'%>
+  <%= link_to 'User List', admin_users_path %><br />
+  <%= link_to 'Create User', new_admin_user_path %><br />
+<% else %>
+    <% if current_user.attendences.where('created_at = ?', Date.today.present?)%>
+      <%= link_to 'Mark Attendance', employee_page_path %><br />
+    <% else %>
+      <p>You already marked your attendence of today's date !!.</p>
+    <% end -%>
+<% end -%>

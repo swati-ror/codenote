@@ -1,0 +1,14 @@
+<%unless current_user%>
+<h2>Login</h2>
+<div class="container">
+  <%= form_with url: sessions_path, method: :post, local: true do |f| %>
+
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, required: true, class: 'form-control' %><br>
+
+    <%= f.label :password %><br />
+    <%= f.password_field :password, required: true, autocomplete: "off", class: 'form-control' %><br>
+    <%= f.submit :login unless current_user%>
+  <% end %>
+<%end%>
+</div>

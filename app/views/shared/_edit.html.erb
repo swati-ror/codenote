@@ -1,0 +1,18 @@
+<%if current_user.role == 'employee' %>
+  <div class="container">
+    <%= form_with model: @attendence, local: true do |f| %>
+      <%= f.label :in_time%><br />
+      <%= f.time_field :in_time, :format=>"%H:%M", disable: true, readonly: true, required: true, class: 'form-control' %><br>
+      <% if (Time.now.hour >= 15) and (Time.now.hour <=21) %>
+        <%= f.label :out_time  %><br />
+        <%= f.time_field :out_time, :format=>"%H:%M", required: true, class: 'form-control' %><br>
+
+        <%= f.label :break %><br />
+        <%= f.number_field :break, required: true, class: 'form-control' %><br>
+        <%= f.submit :save %>
+      <% else %>
+        <p> There is time remaining to mark attendence!!</p>
+      <%end%>
+    <%end%>
+  </div>
+<%end%>
