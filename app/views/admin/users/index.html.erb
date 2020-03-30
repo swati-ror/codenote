@@ -8,25 +8,23 @@
       <th>Action</th>
       <th></th>
     </tr>
-     <% @user.each do |user| %>
-      <tr>
-        <td><b><%= user.id %></b></td>
-        <td><%= user.email %></td>
-        <td><%= user.role %></td>
-        <td><%= link_to 'Edit', edit_admin_user_path(user)%></td>
-        <td><%= link_to 'View_attendences', attendences_path(user_id: user.id), remote: true %></td>
-      </tr>
-     <%end%>
+      <% @user.each do |user| %>
+        <tr class='list' data-url="<%= attendences_path(user_id: user.id) %>">
+          <td><b><%= user.id %></b></td>
+          <td><%= user.email %></td>
+          <td><%= user.role %></td>
+          <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+          <td><%='View_attendences'%></td>
+        </tr>
+      <%end%>
   </table>
 </div>
 <div id= "attendence_list" >
 </div>
 <div id= "myModal">
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade" id="myModal" role="dialog" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="true">
   </div>
 </div>
-<%= link_to 'Open Attendence List', show_list_path, remote: true, class: 'btn btn-info btn-lg'%><br />
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button> -->
+<%= link_to 'Open Attendence List', show_list_path, remote: true, class: 'btn btn-info btn-lg' %><br />
 <%= link_to 'Back', home_path, class: 'btn btn-info btn-lg' %>

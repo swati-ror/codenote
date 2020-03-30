@@ -5,15 +5,13 @@
     <th>Out_Time</th>
     <th>Break</th>
     <th colspan="5"></th>
-  </tr>
-       
+  </tr>   
   <% @attendences.each do |a| %>
     <tr>
       <td><b><%= a.id %></b></td>
       <td><%= a.in_time %></td>
-      <td><%= a.in_time %></td>
       <td><%= a.out_time %></td>
-      <td><%= a.break %></td><br />
+      <td><%= a.break %></td>
     </tr>
   <%end%>
 </table>
