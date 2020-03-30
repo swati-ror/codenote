@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to home_path
     else
-      render 'new'
+      render 'shared/errors_messages'
     end
   end
 
