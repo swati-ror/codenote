@@ -31,11 +31,8 @@ $(document).on('click', '.modal-header', function(){
 
 $(document).on('click', '.list', function() {
   $.ajax({
-    url: '/attendences',
+    url: $(this).data('url'),
     type: 'get',
-    dataType: 'script',
-    data: {
-      url: $(this).data('url')
-    },
+    dataType: 'script'
   });
 });

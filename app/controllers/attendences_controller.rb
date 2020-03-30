@@ -2,7 +2,6 @@ class AttendencesController < ApplicationController
 
   def index
     @attendences =  Attendence.where(user_id: params[:user_id])
-    binding.pry
   end
 
   def create
