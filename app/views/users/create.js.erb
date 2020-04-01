@@ -1,0 +1,7 @@
+<% if @user.id%>
+  $('#allUser').append("<%= j render(:partial => 'create') %>");
+
+<% else %>
+  $('#error').html("<%= j render(:partial => 'errors_messages') %>");
+<% end %>
+

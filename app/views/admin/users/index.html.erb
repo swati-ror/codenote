@@ -1,4 +1,4 @@
-<div>
+<div id= "allUser">
   <h1> All Users</h1>
   <table> 
     <tr>
@@ -8,7 +8,7 @@
       <th>Action</th>
       <th></th>
     </tr>
-      <% @user.each do |user| %>
+      <% @users.each do |user| %>
         <tr class='list' data-url="<%= attendences_path(user_id: user.id) %>">
           <td><b><%= user.id %></b></td>
           <td><%= user.email %></td>
@@ -26,8 +26,17 @@
   aria-hidden="true">
   </div>
 </div>
-<div style="text-align: center;" id="createUser">
-  <%= link_to 'Create User', new_admin_user_path, remote: true, class: 'btn btn-info btn-lg' %>
+<STYLE type="text/css">
+  div#error {font-style: bold; color: red}
+</STYLE>
+<div id= "error" style="text-align: center;">
 </div>
-<%= link_to 'Open Attendence List', show_list_path, remote: true, class: 'btn btn-info btn-lg' %><br />
+<div style="text-align: center;">
+  <%= link_to 'Create User', new_admin_user_path, remote: true %>
+  <div id= "user">
+  </div>
+</div>
+
+
+<%= link_to 'Open Attendence List', show_list_path, class: 'btn btn-info btn-lg', remote: true  %><br />
 <%= link_to 'Back', home_path, class: 'btn btn-info btn-lg' %>

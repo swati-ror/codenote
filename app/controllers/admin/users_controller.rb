@@ -3,7 +3,7 @@ module Admin
     before_action :check_admin
 
     def index
-      @user = User.all
+      @users = User.all
     end
 
     def new
@@ -13,7 +13,7 @@ module Admin
     def create
       @user = User.new(params[user_params])
       if @user.save
-        redirect_to home_path
+        redirect_to new_admin_user_path
       end
     end
 

@@ -1,7 +1,5 @@
 <h2>Create User</h2>
-<div class="container">
-  <%= form_for(@user, :remote => true) do |f| %>
-
+  <%= form_for(@user, :html=>{:class=>"createUser",:remote=>true}) do |f| %>
   <%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true, required: true, class: 'form-control' %><br>
 
@@ -11,5 +9,3 @@
   <%= f.select :role, ['admin', 'employee']%>
   <%= f.submit :save %>
   <% end %>
-
-</div>
