@@ -24,7 +24,7 @@ class AttendencesController < ApplicationController
       flash['message'] = 'successfully update.'
       redirect_to home_path
     else
-      render 'home'
+      redirect_to home_path
     end
   end
 

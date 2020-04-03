@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one :address
+  accepts_nested_attributes_for :address
   has_many :attendences
   has_secure_password
 

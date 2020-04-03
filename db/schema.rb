@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_103510) do
+ActiveRecord::Schema.define(version: 2020_04_03_092125) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "attendences", force: :cascade do |t|
     t.datetime "in_time"
@@ -27,6 +37,8 @@ ActiveRecord::Schema.define(version: 2020_03_12_103510) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "role"
+    t.string "name"
+    t.date "date_of_birth"
   end
 
 end

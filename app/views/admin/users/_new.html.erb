@@ -1,11 +1,30 @@
 <h2>Create User</h2>
   <%= form_for(@user, :html=>{:class=>"createUser",:remote=>true}) do |f| %>
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, required: true, class: 'form-control' %><br>
+  <%= f.label :Username %>
+  <%= f.text_field :name, autofocus: true, required: true, class: 'form-control' %><br />
 
-  <%= f.label :password %><br />
-  <%= f.password_field :password, required: true, autocomplete: "off", class: 'form-control' %><br>
+  <%= f.label :email %>
+  <%= f.email_field :email, autofocus: true, required: true, class: 'form-control' %><br />
 
-  <%= f.select :role, ['admin', 'employee']%>
+  <%= f.label :password %>
+  <%= f.password_field :password, required: true, autocomplete: "off", class: 'form-control' %><br />
+  
+  <%= f.label :Role %>
+  <%= f.select :role, ['admin', 'employee']%><br />
+
+  <%= f.label :Date_of_birth %>
+  <%= f.date_field :date_of_birth, "data-provide" => 'datepicker', required: true, class: 'form-control'%><br />
+  
+  <%= f.fields_for :addresses do |form| %>
+    <%= form.label :Address %>
+    <%= form.text_field :address, required: true, class: 'form-control' %><br />
+    <%= form.label :City %>
+    <%= form.text_field :city, required: true, class: 'form-control' %><br />
+    <%=form.label :Country %>
+    <%= form.select :country, ["Australia", "New Zealand", "India", "America"] %><br />
   <%= f.submit :save %>
   <% end %>
+  <% end %>
+
+
+    

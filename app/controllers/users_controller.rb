@@ -4,9 +4,9 @@ class UsersController < ApplicationController
 
   def new
   end
- 
+
   def create
-    @user = User.new(user_params)
+    @user = User.build_address(user_params)
     respond_to do |format|
       if @user.save
         format.html { redirect_to new_admin_user_path, notice: 'User was successfully created.' }
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :role)
+    params.require(:user).permit(:name, :email, :password, :role, :date_of_birth, addresses_attributes: [ :address, :City, :Country ])
   end
   
 end
