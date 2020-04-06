@@ -17,8 +17,6 @@ class Attendence < ApplicationRecord
   def out_time?
     if (Time.now.hour >= 18 && Time.now.hour <= 21)
       out_time.present?
-    else 
-      errors.add(:out_time, "time remaining to mark attendence...please wait...")
     end 
   end
 
@@ -30,7 +28,7 @@ class Attendence < ApplicationRecord
 
   def evening_attendence
     if out_time?
-      errors.add(:out_time, "todays attendence recorded successfullly.")
+      errors.add(:out_time, "saved")
     end
   end
 end

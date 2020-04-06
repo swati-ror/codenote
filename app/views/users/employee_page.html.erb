@@ -9,6 +9,8 @@
           <%= f.label :in_time %> <br/>
           <%= f.time_field :in_time, :format=>"%H:%M", required: true, class: 'form-control' %><br>
         <%# if (Time.now.hour >= 9) && (Time.now.hour <=17) %>
+        <% elsif @attendence.out_time.present? %>
+          Today's attendence is completely filled(intime, outtime), please come tomorrow.
         <% else %>
           <%= f.time_field :in_time, :format=>"%H:%M", disable: true, readonly: true, class: 'form-control' %><br>
           <%= f.label :out_time  %><br />

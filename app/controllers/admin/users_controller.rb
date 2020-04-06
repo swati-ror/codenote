@@ -8,6 +8,7 @@ module Admin
 
     def new
       @user = User.new()
+      @user.build_address
     end
 
     def create
@@ -24,7 +25,7 @@ module Admin
     private
 
     def user_params
-      params.require(:user).permit(:email, :password, :role)
+      params.require(:user).permit(:name, :email, :password, :role, :date_of_birth, address_attributes: [ :address, :city, :country ])
     end
   end  
 end

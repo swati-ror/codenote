@@ -3,10 +3,12 @@ class UsersController < ApplicationController
   before_action :check_employee, only: [:employee_page]
 
   def new
+    @user = User.new()
+    @user.build_address
   end
 
   def create
-    @user = User.build_address(user_params)
+    @user = User.new(user_params)
     respond_to do |format|
       if @user.save
         format.html { redirect_to new_admin_user_path, notice: 'User was successfully created.' }
@@ -16,6 +18,10 @@ class UsersController < ApplicationController
         format.js
       end
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def update
@@ -45,8 +51,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :role, :date_of_birth, addresses_attributes: [ :address, :City, :Country ])
+    params.require(:user).permit(:name, :email, :password, :role, :date_of_birth, address_attributes: [ :address, :city, :country ])
   end
   
 end
-                
+ 
