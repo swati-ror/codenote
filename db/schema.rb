@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_092125) do
+ActiveRecord::Schema.define(version: 2020_04_06_140814) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string "address"
+    t.string "state"
     t.string "city"
     t.string "country"
     t.integer "user_id"
@@ -29,6 +29,22 @@ ActiveRecord::Schema.define(version: 2020_04_03_092125) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "city_name"
+    t.integer "state_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "state_code"
+    t.string "state_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["state_code"], name: "index_states_on_state_code", unique: true
   end
 
   create_table "users", force: :cascade do |t|
