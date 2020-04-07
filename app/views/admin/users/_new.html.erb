@@ -16,10 +16,10 @@
   <%= f.date_field :date_of_birth, "data-provide" => 'datepicker', required: true, class: 'form-control'%><br />
   
     <%= f.fields_for :address do |form| %>
-      <%= form.label Address %>
-      <%= form.text_field :address, required: true, class: 'form-control' %><br />
+      <%= form.label :State %>
+      <%= form.select :state, ['Maharashtra', 'Madhya Pradesh','Uttar Pradesh', 'Gujrat'], :name=>"state",:id=>"state" required: true %><br />
       <%= form.label :City %>
-      <%= form.text_field :city, required: true, class: 'form-control' %><br />
+      <%= form.select :city, ['', '', '', ''] required: true, class: 'form-control' %><br />
       <%=form.label :Country %>
       <%= form.select :country, ["Australia", "New Zealand", "India", "America"] %><br />
     <% end %>
