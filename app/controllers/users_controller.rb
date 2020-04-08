@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   def new
     @user = User.new()
     @user.build_address
+    #@state = {['Maharashtra', 1], ['Madhya Pradesh', 2], ['Uttar Pradesh', 3], ['Gujrat', 4]}
+    @state = State.all.collect { |t|  
+      [t.state_name, t.state_code]
+    }
   end
 
   def create

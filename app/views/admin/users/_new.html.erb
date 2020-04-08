@@ -17,9 +17,9 @@
   
     <%= f.fields_for :address do |form| %>
       <%= form.label :State %>
-      <%= form.select :state, ['Maharashtra', 'Madhya Pradesh','Uttar Pradesh', 'Gujrat'], :name=>"state",:id=>"state" required: true %><br />
+      <%= form.select :state, options_from_collection_for_select(@state) %><br />
       <%= form.label :City %>
-      <%= form.select :city, ['', '', '', ''] required: true, class: 'form-control' %><br />
+      <%= form.select :city, [''] %><br />
       <%=form.label :Country %>
       <%= form.select :country, ["Australia", "New Zealand", "India", "America"] %><br />
     <% end %>
