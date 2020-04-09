@@ -1,20 +1,17 @@
 $('#user').html("<%= j render(:partial => 'new') %>");
 $(document).on("change", "#state", function(){
-        var val = $(this).val();
-        if (val == 223 || val == 224) {
-            $('#othstate').val('').hide();
-            $.ajax({
-               url: "admin/users",
-               method: "GET", 
-               dataType: "json",
-               data: { state : val },
-               success: function(data) {
-                   $('#state').html( data );
-               }
-            });
-        }
-        else {
-           $('#state').val('').hide();
-           $('#othstate').show();
-        }
+  var val = $(this).val();
+  $.ajax({
+    url: "admin/users/city",
+    method: "GET", 
+    dataType: "json",
+    data: { state : val },
+    success: function(data) {
+  $.each(data, function(key,value){
+     if (value == 'MH')
+
+  })
+    alert(data.name)
+    }
+  });
 });

@@ -5,8 +5,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new()
     @user.build_address
-    #@state = {['Maharashtra', 1], ['Madhya Pradesh', 2], ['Uttar Pradesh', 3], ['Gujrat', 4]}
-    @state = State.all.collect { |t|  
+    @states = State.all.collect { |t|  
       [t.state_name, t.state_code]
     }
   end
@@ -55,7 +54,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :role, :date_of_birth, address_attributes: [ :address, :city, :country ])
+    params.require(:user).permit(:name, :email, :password, :role, :date_of_birth, address_attributes: [ :state, :city, :country ])
   end
   
 end

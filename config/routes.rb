@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get 'show_list', to: 'attendences#show_list'
   namespace :admin do
     resources :users
+    get 'city', to: 'admin/users#city'
   end
 end

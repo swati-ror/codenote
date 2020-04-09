@@ -1,27 +1,27 @@
 <h2>Create User</h2>
   <%= form_for(@user, :html=>{:class=>"createUser",:remote=>true}) do |f| %>
-  <%= f.label :Username %>
-  <%= f.text_field :name, autofocus: true, required: true, class: 'form-control' %><br />
+    <%= f.label :Username %>
+    <%= f.text_field :name, autofocus: true, required: true, class: 'form-control' %><br />
 
-  <%= f.label :email %>
-  <%= f.email_field :email, autofocus: true, required: true, class: 'form-control' %><br />
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, required: true, class: 'form-control' %><br />
 
-  <%= f.label :password %>
-  <%= f.password_field :password, required: true, autocomplete: "off", class: 'form-control' %><br />
-  
-  <%= f.label :Role %>
-  <%= f.select :role, ['admin', 'employee']%><br />
+    <%= f.label :password %>
+    <%= f.password_field :password, required: true, autocomplete: "off", class: 'form-control' %><br />
+    
+    <%= f.label :Role %>
+    <%= f.select :role, ['admin', 'employee']%><br />
 
-  <%= f.label :Date_of_birth %>
-  <%= f.date_field :date_of_birth, "data-provide" => 'datepicker', required: true, class: 'form-control'%><br />
-  
-    <%= f.fields_for :address do |form| %>
-      <%= form.label :State %>
-      <%= form.select :state, options_from_collection_for_select(@state) %><br />
-      <%= form.label :City %>
-      <%= form.select :city, [''] %><br />
-      <%=form.label :Country %>
-      <%= form.select :country, ["Australia", "New Zealand", "India", "America"] %><br />
-    <% end %>
-  <%= f.submit :save %>
+    <%= f.label :Date_of_birth %>
+    <%= f.date_field :date_of_birth, "data-provide" => 'datepicker', required: true, class: 'form-control'%><br />
+    
+      <%= f.fields_for :address do |form| %>
+        <%= form.label :State %>
+        <%= form.select :state, options_for_select(@states), prompt: "Select State" %><br />
+        <%= form.label :City %>
+        <%= form.select :city, options_for_select(@cities), prompt: "Select City"%><br />
+        <%=form.label :Country %>
+        <%= form.select :country, ["Australia", "New Zealand", "India", "America"] %><br />
+      <% end %>
+    <%= f.submit :save %>
   <% end %>
