@@ -22,6 +22,9 @@ module Admin
 
     def edit
       @user = User.find(params[:id])
+      @user.build_address
+      @states = State.all.map { |t| [t.state_name, t.state_code] }
+      @cities = {}
     end
 
     def city
