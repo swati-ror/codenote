@@ -29,7 +29,7 @@ City.create!([
   { city_name: 'Mathura', state_id: (State.find_by_state_code("UP").id) },
 
   { city_name: 'Ahmedabad', state_id: (State.find_by_state_code("GJ").id) },
-  { city_name: 'Surat', state_id: (State.find_by_state_code("UP").id) },
-  { city_name: 'Rajkot', state_id: (State.find_by_state_code("UP").id) },
-  { city_name: 'Vadodara', state_id: (State.find_by_state_code("UP").id) }
+  { city_name: 'Surat', state_id: (State.find_by_state_code("GJ").id) },
+  { city_name: 'Rajkot', state_id: (State.find_by_state_code("GJ").id) },
+  { city_name: 'Vadodara', state_id: (State.find_by_state_code("GJ").id) }
 ])

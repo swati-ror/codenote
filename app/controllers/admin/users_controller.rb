@@ -25,9 +25,9 @@ module Admin
     end
 
     def city
-      @cities = City.includes(:state).where(states: {state_code: params[:state]})
+      @cities = City.includes(:state).where(states: {state_code: params[:state_code]})
       respond_to do |format|
-        format.json {render json: @cities.as_json }
+        format.json {render json: @cities.as_json(only: [:id, :city_name]) }
       end
     end
 

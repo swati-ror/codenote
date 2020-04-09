@@ -1,17 +1,17 @@
 $('#user').html("<%= j render(:partial => 'new') %>");
-$(document).on("change", "#state", function(){
+$(document).on("change", "#user_address_attributes_state", function(){
   var val = $(this).val();
   $.ajax({
-    url: "admin/users/city",
+    url: "/admin/city?state_code="+val,
     method: "GET", 
     dataType: "json",
-    data: { state : val },
     success: function(data) {
-  $.each(data, function(key,value){
-     if (value == 'MH')
-
-  })
-    alert(data.name)
+      console.log(data)
+      var optionsAsString = "";
+      $.each(data, function( index, city ) {
+        optionsAsString += "<option value='" + city.city_name + "'>" + city.city_name + "</option>";
+      });
+    $('select[name="user[address_attributes][city]"]').html( optionsAsString );
     }
   });
 });
