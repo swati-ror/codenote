@@ -13,7 +13,7 @@
           <td><b><%= user.id %></b></td>
           <td><%= user.email %></td>
           <td><%= user.role %></td>
-          <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+          <td><%= link_to 'Edit', edit_admin_user_path(user), remote: true %></td>
           <td><%='View_attendences'%></td>
         </tr>
       <%end%>

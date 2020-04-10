@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_140814) do
+ActiveRecord::Schema.define(version: 2020_04_10_142831) do
 
   create_table "addresses", force: :cascade do |t|
-    t.string "state"
-    t.string "city"
+    t.integer "state_id"
+    t.integer "city_id"
     t.string "country"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

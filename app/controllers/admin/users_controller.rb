@@ -22,9 +22,9 @@ module Admin
 
     def edit
       @user = User.find(params[:id])
-      @user.build_address
+      #@user.build_address if @user.address.nil?
       @states = State.all.map { |t| [t.state_name, t.state_code] }
-      @cities = {}
+      @cities = @user.address.state_id.city_id.pluck(:city_name)
     end
 
     def city
@@ -37,7 +37,7 @@ module Admin
     private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :role, :date_of_birth, address_attributes: [ :state, :city, :country ])
+      params.require(:user).permit(:name, :email, :password, :role, :date_of_birth, address_attributes: [ :state_id, :city_id, :country ])
     end
   end  
 end

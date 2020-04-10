@@ -1,0 +1,30 @@
+<h2>Edit User</h2>
+<div class="container">
+  <%= form_for @user do |f| %>
+    <%= f.label :Username %>
+    <%= f.text_field :name, autofocus: true, required: true, class: 'form-control' %><br />
+
+    <%= f.label :email %>
+    <%= f.email_field :email, readonly: true, autofocus: true, required: true, class: 'form-control' %><br />
+
+    <%= f.label :password %>
+    <%= f.password_field :password, readonly: true, required: true, autocomplete: "off", class: 'form-control' %><br />
+
+    <%= f.label :Role %>
+    <%= f.select :role, ['admin', 'employee'], :selected => params[:user_role] %><br />
+
+    <%= f.label :Date_of_birth %>
+    <%= f.date_field :date_of_birth, "data-provide" => 'datepicker', required: true, class: 'form-control'%><br />
+
+    <%= f.fields_for :address do |form| %>
+      <%= form.label :State %>
+      <%= form.select :state_id, @states %><br />
+      <%= form.label :City %>
+      <%= form.select :city_id, @cities %><br />
+      <%=form.label :Country %>
+      <%= form.select :country, ["Australia", "New Zealand", "India", "America"] %><br />
+    <% end %>
+    <%= f.submit :save %>
+  <% end %>
+</div>
+<%#= f.select :project_id, @project_select, :selected => params[:pid] %>

@@ -36,9 +36,4 @@ class AttendencesController < ApplicationController
     def attendence_params
       params.require(:attendence).permit(:in_time, :out_time, :break)
     end
-    # def has_updated?
-    #   if Attendence.where(user_id: :current_user.id, id: params[:id]).any?
-    #     redirect_to :home, alert: "You have already updated"
-    #   end
-    # end
 end

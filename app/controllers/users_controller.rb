@@ -28,12 +28,13 @@ class UsersController < ApplicationController
   end
 
   def update
-      @user = User.find(params[:id])
-      if @user.update(user_params) 
-        redirect_to admin_users_path 
-      else
-         render 'home'
-      end
+    @user = User.find(params[:id])
+    #@user.build_address if @user.address.nil?
+    if @user.update(user_params) 
+      redirect_to admin_users_path 
+    else
+      render 'home'
+    end
   end
 
   def home
@@ -54,7 +55,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :role, :date_of_birth, address_attributes: [ :state, :city, :country ])
+    params.require(:user).permit(:name, :email, :password, :role, :date_of_birth, address_attributes: [ :state_id, :city_id, :country ])
   end
   
 end
