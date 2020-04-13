@@ -23,5 +23,5 @@
         <%=form.label :Country %>
         <%= form.select :country, ["Australia", "New Zealand", "India", "America"] %><br />
       <% end %>
-    <%= f.submit :save %>
+    <%= f.submit :save, id: 'sumbit'%>
   <% end %>

@@ -1,6 +1,5 @@
 class Address < ApplicationRecord
   belongs_to :user
-  has_one :state
-  has_one :city
-  validates_presence_of :city
+  belongs_to :state
+  belongs_to :city
 end

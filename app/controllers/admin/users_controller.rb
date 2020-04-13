@@ -9,7 +9,7 @@ module Admin
     def new
       @user = User.new()
       @user.build_address
-      @states = State.all.map { |t| [t.state_name, t.state_code] }
+      @states = State.all.map { |t| [t.state_name, t.id] }
       @cities = {}
     end
 
@@ -23,12 +23,12 @@ module Admin
     def edit
       @user = User.find(params[:id])
       #@user.build_address if @user.address.nil?
-      @states = State.all.map { |t| [t.state_name, t.state_code] }
-      @cities = @user.address.state_id.city_id.pluck(:city_name)
+      @states = State.all.pluck(:state_name, :id)
+      @cities = @user.address.state.cities.pluck(:city_name, :id)
     end
 
     def city
-      @cities = City.includes(:state).where(states: {state_code: params[:state_code]})
+      @cities = City.where(state_id: params[:state_id])
       respond_to do |format|
         format.json {render json: @cities.as_json(only: [:id, :city_name]) }
       end
