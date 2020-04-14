@@ -36,3 +36,20 @@ $(document).on('click', '.list', function() {
     dataType: 'script'
   });
 });
+
+$(document).on("change", "#user_address_attributes_state_id", function(){
+  var val = $(this).val();
+  $.ajax({
+    url: "/admin/city?state_id="+val,
+    method: "GET", 
+    dataType: "json",
+    success: function(data) {
+      console.log(data)
+      var optionsAsString = "";
+      $.each(data, function( index, city ) {
+        optionsAsString += "<option value='" + city.id + "'>" + city.city_name + "</option>";
+      });
+    $('select[name="user[address_attributes][city_id]"]').html( optionsAsString );
+    }
+  });
+});
