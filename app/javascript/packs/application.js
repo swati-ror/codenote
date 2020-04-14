@@ -35,6 +35,9 @@ $(document).on('click', '.list', function() {
     type: 'get',
     dataType: 'script'
   });
+  $("td > a").on("click",function(e){
+  e.stopPropagation();
+});
 });
 
 $(document).on("change", "#user_address_attributes_state_id", function(){

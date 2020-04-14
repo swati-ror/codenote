@@ -37,23 +37,13 @@
     border: 2px solid ;
     vertical-align: middle;
   }
-  #user{
-    position:absolute;
-    right: 500px;
-    width: 300px;
-    border: 2px solid ;
-    text-align: center;
-    vertical-align: center;
-  }
 </STYLE>
 <div id= "error" style="text-align: center;">
 </div>
 <div class= "topcorner">
 </div> 
 <div style="text-align: center;">
-  <%= link_to 'Create User', new_admin_user_path, class: 'btn btn-info btn-lg', remote: true %>
-  <div id= "user">
-  </div>
+  <%= link_to 'Create User', new_admin_user_path, class: 'btn btn-info btn-lg', data: { toggle: 'tooltip'}, remote: true %>
 </div>
 
 <%= link_to 'Open Attendence List', show_list_path, class: 'btn btn-info btn-lg', remote: true  %><br />
