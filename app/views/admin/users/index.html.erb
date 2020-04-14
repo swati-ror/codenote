@@ -1,3 +1,4 @@
+
 <div id= "allUser">
   <h1> All Users</h1>
   <table> 
@@ -28,15 +29,32 @@
 </div>
 <STYLE type="text/css">
   div#error {font-style: bold; color: red}
+  .topcorner{
+    position:absolute;
+    top:10px;
+    right: 300px;
+    width: 300px;
+    border: 2px solid ;
+    vertical-align: middle;
+  }
+  #user{
+    position:absolute;
+    right: 500px;
+    width: 300px;
+    border: 2px solid ;
+    text-align: center;
+    vertical-align: center;
+  }
 </STYLE>
 <div id= "error" style="text-align: center;">
 </div>
+<div class= "topcorner">
+</div> 
 <div style="text-align: center;">
-  <%= link_to 'Create User', new_admin_user_path, remote: true %>
+  <%= link_to 'Create User', new_admin_user_path, class: 'btn btn-info btn-lg', remote: true %>
   <div id= "user">
   </div>
 </div>
-
 
 <%= link_to 'Open Attendence List', show_list_path, class: 'btn btn-info btn-lg', remote: true  %><br />
 <%= link_to 'Back', home_path, class: 'btn btn-info btn-lg' %>

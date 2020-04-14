@@ -22,7 +22,6 @@ module Admin
 
     def edit
       @user = User.find(params[:id])
-      #@user.build_address if @user.address.nil?
       @states = State.all.pluck(:state_name, :id)
       @cities = @user.address.state.cities.pluck(:city_name, :id)
     end
