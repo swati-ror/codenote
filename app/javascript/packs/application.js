@@ -29,15 +29,12 @@ $(document).on('click', '.modal-header', function(){
   $('#myModal').hide()
 });
 
-$(document).on('click', '.list', function() {
+$(document).on('click', 'tr.list:not(.editList)', function() {
   $.ajax({
     url: $(this).data('url'),
     type: 'get',
     dataType: 'script'
   });
-  $("td > a").on("click",function(e){
-  e.stopPropagation();
-});
 });
 
 $(document).on("change", "#user_address_attributes_state_id", function(){

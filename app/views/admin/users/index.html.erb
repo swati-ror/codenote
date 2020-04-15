@@ -14,7 +14,7 @@
           <td><b><%= user.id %></b></td>
           <td><%= user.email %></td>
           <td><%= user.role %></td>
-          <td><%= link_to 'Edit', edit_admin_user_path(user), remote: true %></td>
+          <td class= 'editLink'><%= link_to 'Edit', edit_admin_user_path(user), remote: true %></td>
           <td><%='View_attendences'%></td>
         </tr>
       <%end%>
@@ -34,7 +34,7 @@
     top:10px;
     right: 300px;
     width: 300px;
-    border: 2px solid ;
+    border: 2px bold black;
     vertical-align: middle;
   }
 </STYLE>
